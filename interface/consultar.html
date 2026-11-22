@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar empleados</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary justify-content-between">
+        <a class="navbar-brand" href="index.html">Recursos Humanos Taller de Node.js S.A</a>
+        <button class="btn btn-light btn-sm" onclick="cerrarSesion()">Cerrar sesión</button>
+    </nav>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">Consultar empleados</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="buscar">Buscar únicamente por nombre</label>
+                    <div class="input-group">
+                        <input type="text" id="buscar" class="form-control" placeholder="Escribe el nombre del empleado">
+                        <div class="input-group-append">
+                            <button type="button" id="btnBuscar" class="btn btn-primary" onclick="mostrarEmpleados()">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="thead-light"><tr><th>ID</th><th>Nombre</th><th>Apellido</th><th>Teléfono</th><th>Correo</th><th>Dirección</th></tr></thead>
+                        <tbody id="tablaEmpleados"></tbody>
+                    </table>
+                </div>
+                <a href="index.html" class="btn btn-secondary">Regresar al menú</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/empresa.js"></script>
+</body>
+</html>

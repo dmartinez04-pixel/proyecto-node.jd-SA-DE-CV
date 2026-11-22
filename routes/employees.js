@@ -62,24 +62,7 @@ employee.put("/:id", async (req, res, next) =>{
     }
 
     return res.status(500).json({code: 500, message: "Campos incompletos"});
-}); 
-
-employee.patch("/:id", async (req, res, next) =>{
-    if (!/^\d+$/.test(req.params.id)) {
-        return next();
-    }
-
-    if(req.body.em_name){
-        let query = `UPDATE employees SET em_name='${req.body.em_name}' WHERE em_id=${req.params.id}`;
-        const rows = await db.query(query);
-
-        if(rows.affectedRows == 1){
-            return res.status(200).json({code: 200, message: "Empleado actualizado correctamente"});
-        }
-        return res.status(500).json({code: 500, message: "Ocurrio un error"});
-    }
-    return res.status(500).json({code: 500, message: "Campos incompletos"});
-}); 
+});  
 
 employee.get("/", async (req, res, next) =>{
     const empl = await db.query("SELECT * FROM employees");
